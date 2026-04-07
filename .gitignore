@@ -1,0 +1,42 @@
+# --- Compiled files ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtual Environments ---
+.venv/
+venv/
+env/
+ENV/
+bin/
+lib/
+include/
+
+# --- Distribution / Packaging ---
+dist/
+build/
+*.egg-info/
+*.egg
+nosetests.xml
+pip-log.txt
+pip-delete-this-directory.txt
+
+# --- Testing / Linting ---
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.coverage
+htmlcov/
+
+# --- Environment Secrets (CRITICAL) ---
+.env
+.env.local
+.env.*.local
+
+# --- IDEs & System ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp

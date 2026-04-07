@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "isosplit6_torch"
+version = "0.1.0"
+description = "Pure PyTorch implementation of the Isosplit6 clustering algorithm"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.9"
+authors = [
+    {name = "Jeremy Magland", email = "jmagland@flatironinstitute.org"},
+]
+dependencies = [
+    "torch>=2.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest", "numpy", "isosplit6"]
+triton = ["triton>=2.1"]
+
+[tool.setuptools.packages.find]
+include = ["isosplit6_torch*"]
