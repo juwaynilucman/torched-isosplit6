@@ -130,7 +130,11 @@ def _isosplit6_subdivision_method(
     centroids = torch.zeros(K, X.shape[1], dtype=X.dtype, device=device)
     for k in range(1, K + 1):
         mask = labels == k
-        centroids[k - 1] = X_sub[mask].median(dim=0).values
+        subset = X_sub[mask]
+        if subset.is_cuda and torch.are_deterministic_algorithms_enabled():
+            centroids[k - 1] = subset.cpu().median(dim=0).values.to(device)
+        else:
+            centroids[k - 1] = subset.median(dim=0).values
 
     cluster_inds_1, cluster_inds_2 = _single_linkage_split(centroids)
 
